@@ -1,17 +1,29 @@
-class C1 {
-    int x = 50;
+
+public class inheritance
+{
+	public static void main(String[] args) {
+		Student st = new Student();
+		st.clgname = "D Y Patil";
+		st.location = "Pune";
+		st.stdname = "Rushikesh Tekale";
+		
+		st.stdInfo();
+	}
 }
 
-class C2 extends C1 {
-    int y = 40;
+class College{
+    String clgname;
+    String location;
+    public void collegeInfo(){
+        System.out.println(clgname);
+        System.out.println(location);
+    }
 }
 
-public class inheritance {
-    public static void main(String[] args) {
-        C1 a = new C1();
-        System.out.println(a.x);
-        C2 b = new C2();
-        System.out.println(b.x);
-        System.out.println(b.y);
+class Student extends College{
+    String stdname;
+    public void stdInfo(){
+        collegeInfo();
+        System.out.println(stdname);
     }
 }
