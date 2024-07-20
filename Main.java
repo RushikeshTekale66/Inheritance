@@ -1,58 +1,51 @@
 class Main{
 	public static void main(String [] args){
-		SuperBike sb = new SuperBike(true, "Back", 50, "Bike", "Pulser");
-		sb.displaySuperBike();
+		SBI sb = new SBI("Pune", "SBI1233", "SBI");
+		sb.displaySBI();
+
+		BOI bo = new BOI("Personal", "BOI");
+		bo.displayBOI();
 	}
 }
 
-//Grand parent
-class Vehicle{
-	String type;
-	String name;
-	
-	public Vehicle(String type, String name){
-		this.type = type;
-		this.name = name;
-	}
+//Parent class
+class Bank{
+	String bname;
 
-	public void displayVehicle(){
-		System.out.println(this.type);
-		System.out.println(this.name);
+	public Bank(String bname){
+		this.bname = bname;
 	}
 }
 
-//Parent
-class Bike extends Vehicle{
-	String color;
-	int milage;
-	
-	public Bike(String color, int milage, String type, String name){
-		super(type, name);
-		this.color = color;
-		this.milage = milage;
+// 1 child
+class SBI extends Bank{
+	String location;
+	String ifsc;
+
+	public SBI(String location, String ifsc, String bname){
+		super(bname);
+		this.location = location;
+		this.ifsc = ifsc;
 	}
-	
-	public void displayBike(){
-		System.out.println(this.color);
-		System.out.println(this.milage);
-		System.out.println(super.type);
-		System.out.println(super.name);
+
+	public void displaySBI(){
+		System.out.println(super.bname);
+		System.out.println(this.location);
+		System.out.println(this.ifsc);
 	}
 }
 
-//Child
-class SuperBike extends Bike{
-	boolean sportMode;
-	public SuperBike(boolean sportMode, String color, int milage, String type, String name){
-		super(color, milage, type, name);
-		this.sportMode= sportMode;
+// 2 child
+class BOI extends Bank{
+	String loantype;
+	
+	public BOI(String loantype, String bname){
+		super(bname);
+		this.loantype = loantype;
 	}
-
-	public void displaySuperBike(){
-		System.out.println(this.sportMode);
-		System.out.println(super.color);
-		System.out.println(super.milage);
-		System.out.println(super.type);
-		System.out.println(super.name);
+	
+	public void displayBOI(){
+		System.out.println(super.bname);
+		System.out.println(this.loantype);
 	}
 }
