@@ -1,40 +1,58 @@
 class Main{
 	public static void main(String [] args){
-		Car c = new Car("Thar", 1000000, "Car", "Mahindra");
-		c.displayCar();
+		SuperBike sb = new SuperBike(true, "Back", 50, "Bike", "Pulser");
+		sb.displaySuperBike();
 	}
 }
 
-//Parent Class
+//Grand parent
 class Vehicle{
-	String category;
-	String brand;
+	String type;
+	String name;
 	
-	public Vehicle(String category, String brand){
-		this.category = category;
-		this.brand = brand;
+	public Vehicle(String type, String name){
+		this.type = type;
+		this.name = name;
 	}
-	
+
 	public void displayVehicle(){
-		System.out.println(category);
-		System.out.println(brand);
+		System.out.println(this.type);
+		System.out.println(this.name);
 	}
 }
 
-//Child Class
-class Car extends Vehicle{
-	String model;
-	int price;
+//Parent
+class Bike extends Vehicle{
+	String color;
+	int milage;
+	
+	public Bike(String color, int milage, String type, String name){
+		super(type, name);
+		this.color = color;
+		this.milage = milage;
+	}
+	
+	public void displayBike(){
+		System.out.println(this.color);
+		System.out.println(this.milage);
+		System.out.println(super.type);
+		System.out.println(super.name);
+	}
+}
 
-	public Car(String model, int price, String category, String brand){
-		super(category, brand);
-		this.model = model;
-		this.price = price;
+//Child
+class SuperBike extends Bike{
+	boolean sportMode;
+	public SuperBike(boolean sportMode, String color, int milage, String type, String name){
+		super(color, milage, type, name);
+		this.sportMode= sportMode;
 	}
 
-	public void displayCar(){
-		super.displayVehicle();
-		System.out.println(model);
-		System.out.println(price);
+	public void displaySuperBike(){
+		System.out.println(this.sportMode);
+		System.out.println(super.color);
+		System.out.println(super.milage);
+		System.out.println(super.type);
+		System.out.println(super.name);
 	}
 }
