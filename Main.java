@@ -1,51 +1,33 @@
 class Main{
-	public static void main(String [] args){
-		SBI sb = new SBI("Pune", "SBI1233", "SBI");
-		sb.displaySBI();
-
-		BOI bo = new BOI("Personal", "BOI");
-		bo.displayBOI();
+	public static void main(String [] str){
+		Model m = new Model("X 4 Pro", 18000, "Poco", "India");
+		m.display();
 	}
 }
-
-//Parent class
-class Bank{
-	String bname;
-
-	public Bank(String bname){
-		this.bname = bname;
-	}
-}
-
-// 1 child
-class SBI extends Bank{
-	String location;
-	String ifsc;
-
-	public SBI(String location, String ifsc, String bname){
-		super(bname);
-		this.location = location;
-		this.ifsc = ifsc;
-	}
-
-	public void displaySBI(){
-		System.out.println(super.bname);
-		System.out.println(this.location);
-		System.out.println(this.ifsc);
-	}
-}
-
-// 2 child
-class BOI extends Bank{
-	String loantype;
+class Mobile{
+	String cName;
+	String cLocation;
 	
-	public BOI(String loantype, String bname){
-		super(bname);
-		this.loantype = loantype;
+	public Mobile(String cName, String cLocation){
+		this.cName = cName;
+		this.cLocation = cLocation; 
 	}
-	
-	public void displayBOI(){
-		System.out.println(super.bname);
-		System.out.println(this.loantype);
+}
+
+class Model extends Mobile{
+	String model;
+	int price;
+
+	public Model(String model, int price, String cName, String cLocation){
+		super(cName, cLocation);
+		this.model = model;
+		this.price = price;
+	}
+
+	public void display(){
+		System.out.println(super.cName);
+		System.out.println(super.cLocation);
+		System.out.println(this.model);
+		System.out.println(this.price);
 	}
 }
