@@ -1,33 +1,44 @@
 class Main{
-	public static void main(String [] str){
-		Model m = new Model("X 4 Pro", 18000, "Poco", "India");
-		m.display();
+	public static void main(String [] args){
+		SuperCar c = new SuperCar(true, "Black", 20, "Car", "Thar");
+		c.display();
 	}
 }
-class Mobile{
-	String cName;
-	String cLocation;
+
+class Vehicle{
+	String type;
+	String name;
+
+	public Vehicle(String type, String name){
+		this.name = name;
+		this.type = type;
+	}
+}
+
+class Car extends Vehicle{
+	String color;
+	int milage;
 	
-	public Mobile(String cName, String cLocation){
-		this.cName = cName;
-		this.cLocation = cLocation; 
+	public Car(String color, int milage, String type, String name){
+		super(type, name);
+		this.color = color;
+		this.milage = milage;
 	}
 }
 
-class Model extends Mobile{
-	String model;
-	int price;
-
-	public Model(String model, int price, String cName, String cLocation){
-		super(cName, cLocation);
-		this.model = model;
-		this.price = price;
+class SuperCar extends Car{
+	boolean sportMode;
+	
+	public SuperCar(boolean sportMode, String color, int milage, String type, String name){
+		super(color, milage, type, name);
+		this.sportMode = sportMode;
 	}
 
 	public void display(){
-		System.out.println(super.cName);
-		System.out.println(super.cLocation);
-		System.out.println(this.model);
-		System.out.println(this.price);
+		System.out.println("Type Vehicle : " + super.type);
+		System.out.println("Name Vehile : " + super.name);
+		System.out.println("Milage : " + super.milage);
+		System.out.println("Color : " + super.color);
+		System.out.println("Sport Mode : " + this.sportMode);		
 	}
 }
